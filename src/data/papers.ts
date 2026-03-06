@@ -16,7 +16,13 @@ import { sg2026640 } from './papers/laji-journal/sg-2026-640';
 
 import { sg2026298 } from './papers/laji-journal/sg-2026-298';
 
+import { sg2026672 } from './papers/laji-journal/sg-2026-672';
+
+import { p2000 } from './papers/laji-journal/2000';
+
 export const papers: Paper[] = [
+  p2000,
+  sg2026672,
   sg2026298,
   sg2026640,
   p100,

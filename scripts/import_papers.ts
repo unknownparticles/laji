@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
 import { GoogleGenAI } from '@google/genai';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -316,8 +317,33 @@ export const ${variableName}: Paper = ${JSON.stringify(generatedObj, null, 4).re
     return {
         id: generatedObj.id,
         variableName: variableName,
-        journalFolder: journalFolder
+        journalFolder: journalFolder,
+        title: generatedObj.title.zh || generatedObj.title.en,
+        files: [tsFilePath, newFilePath]
     };
+}
+
+function gitCommitAndPush(paperTitle: string, filePaths: string[]) {
+    try {
+        console.log(`Committing and pushing changes for: ${paperTitle}`);
+        // Add specific files
+        filePaths.forEach(fp => {
+            execSync(`git add "${fp}"`, { stdio: 'inherit' });
+        });
+
+        // Add updated registry
+        execSync(`git add src/data/papers.ts`, { stdio: 'inherit' });
+
+        const commitMsg = `feat(content): add new paper - ${paperTitle}`;
+        execSync(`git commit -m "${commitMsg}"`, { stdio: 'inherit' });
+
+        // Push with proxy-safe flags
+        console.log('Pushing to remote...');
+        execSync(`git -c http.proxy= -c https.proxy= push`, { stdio: 'inherit' });
+        console.log('Successfully pushed to GitHub.');
+    } catch (e) {
+        console.error('Git automation failed:', e);
+    }
 }
 
 async function updatePapersRegistry(newImports: Array<{ id: string, variableName: string, journalFolder: string }>) {
@@ -377,14 +403,16 @@ async function main() {
                 // Process the PDF but use the manually extracted MD metadata
                 const res = await processFile(pdfPath, pdfFileName, manualObj);
                 if (res) {
-                    successfullyProcessed.push(res);
-
                     // Move the original MD file to the same journal folder
                     const journalFolder = res.journalFolder;
                     const destDir = path.join(outputBaseDir, journalFolder);
                     const newMdPath = path.join(destDir, file);
                     fs.renameSync(filePath, newMdPath);
                     console.log(`Moved original MD to: ${newMdPath}`);
+
+                    // Add MD to the files list for git
+                    res.files.push(newMdPath);
+                    successfullyProcessed.push(res);
                 }
             }
         } else if (ext === '.pdf') {
@@ -398,7 +426,13 @@ async function main() {
 
     if (successfullyProcessed.length > 0) {
         await updatePapersRegistry(successfullyProcessed);
-        console.log(`Finished processing ${successfullyProcessed.length} papers.`);
+
+        // Commit and push each processed paper
+        for (const res of successfullyProcessed) {
+            gitCommitAndPush(res.title, res.files);
+        }
+
+        console.log(`Finished processing and pushing ${successfullyProcessed.length} papers.`);
     }
 }
 

@@ -25,6 +25,66 @@ const content: Record<Language, SiteContent & { about: any; submit: any; archive
     backToList: '返回期刊目录',
     featured: '本期封面文章',
     latest: '最新研究成果',
+    results: '条结果',
+    metrics: {
+      title: '期刊指标',
+      impactFactor: '影响因子',
+      acceptanceRate: '录取率',
+      avgReviewTime: '平均审稿周期',
+      citations: '引用次数 (自引)'
+    },
+    trending: '热门话题',
+    mostRead: {
+      title: '本月必读',
+      unit: '阅读量'
+    },
+    callForPapers: {
+      title: '征稿启事：拖延症的科学',
+      description: '我们正在为即将出版的“无所事事的先进力学”特刊征集稿件。截止日期：看你心情。',
+      action: '立即投稿'
+    },
+    reader: {
+      originalArticle: '原创研究文章',
+      readText: '阅读文字版',
+      viewPdf: '查看 PDF 原件',
+      abstract: '摘要',
+      references: '参考文献与引用',
+      articleInfo: '文章信息',
+      published: '出版日期',
+      journal: '期刊',
+      volume: '卷',
+      issue: '期',
+      doi: '数字对象标识符 (DOI)',
+      relatedArticles: '相关文章'
+    },
+    footer: {
+      motto: '“凡俗之料，皆可成集”',
+      publication: {
+        title: '出版物',
+        current: '当期内容',
+        all: '所有期刊',
+        special: '专题系列',
+        mostCited: '高引用文章'
+      },
+      authors: {
+        title: '作者',
+        submit: '提交初稿',
+        guidelines: '作者指南',
+        peerReview: '同行评审流程',
+        openAccess: '开放获取'
+      },
+      about: {
+        title: '关于',
+        board: '编辑委员会',
+        contact: '联系我们',
+        press: '媒体中心',
+        sponsors: '赞助商'
+      },
+      privacy: '隐私政策',
+      terms: '使用条款',
+      cookies: 'Cookie 政策',
+      publishedBy: '由拉集出版社出版 (Published by Absurdity Press)'
+    },
     about: {
       title: '关于 L.A.J.I.',
       subtitle: '凡俗之料，皆可成集',
@@ -50,6 +110,66 @@ const content: Record<Language, SiteContent & { about: any; submit: any; archive
     backToList: 'Back to Archive',
     featured: 'Featured Article',
     latest: 'Latest Research',
+    results: 'Results',
+    metrics: {
+      title: 'Journal Metrics',
+      impactFactor: 'Impact Factor',
+      acceptanceRate: 'Acceptance Rate',
+      avgReviewTime: 'Avg. Review Time',
+      citations: 'Citations (Self)'
+    },
+    trending: 'Trending Topics',
+    mostRead: {
+      title: 'Most Read This Month',
+      unit: 'Views'
+    },
+    callForPapers: {
+      title: 'Call for Papers: The Science of Procrastination',
+      description: 'We are seeking submissions for our upcoming special issue on "The Advanced Mechanics of Doing Nothing." Deadline: Whenever you feel like it.',
+      action: 'Submit Now'
+    },
+    reader: {
+      originalArticle: 'Original Research Article',
+      readText: 'Read Text',
+      viewPdf: 'View Original PDF',
+      abstract: 'Abstract',
+      references: 'References & Citations',
+      articleInfo: 'Article Information',
+      published: 'Published',
+      journal: 'Journal',
+      volume: 'Volume',
+      issue: 'Issue',
+      doi: 'Digital Object Identifier (DOI)',
+      relatedArticles: 'Related Articles'
+    },
+    footer: {
+      motto: '“Ordinary materials, all can be collected.”',
+      publication: {
+        title: 'Publication',
+        current: 'Current Issue',
+        all: 'All Issues',
+        special: 'Special Collections',
+        mostCited: 'Most Cited'
+      },
+      authors: {
+        title: 'Authors',
+        submit: 'Submit Manuscript',
+        guidelines: 'Author Guidelines',
+        peerReview: 'Peer Review Process',
+        openAccess: 'Open Access'
+      },
+      about: {
+        title: 'About',
+        board: 'Editorial Board',
+        contact: 'Contact',
+        press: 'Press',
+        sponsors: 'Sponsors'
+      },
+      privacy: 'Privacy',
+      terms: 'Terms',
+      cookies: 'Cookies',
+      publishedBy: 'Published by Absurdity Press'
+    },
     about: {
       title: 'About L.A.J.I. JOURNAL',
       subtitle: 'Ordinary materials, all can be collected.',
@@ -289,7 +409,7 @@ export default function App() {
                     className="flex-grow px-4 py-4 focus:outline-none font-serif text-xl italic min-w-0"
                   />
                   <div className="hidden md:flex items-center gap-4 px-4 border-l border-black/10 text-[10px] font-black uppercase tracking-widest text-black/40">
-                    <span>{filteredPapers.length} Results</span>
+                    <span>{filteredPapers.length} {t.results}</span>
                   </div>
                 </div>
               </div>
@@ -298,7 +418,7 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
                 <div className="lg:col-span-8 space-y-20">
                   <div className="flex items-center justify-between border-b-2 border-black pb-4">
-                    <h3 className="text-xs font-black uppercase tracking-[0.4em]">{searchQuery ? 'Search Results' : t.latest}</h3>
+                    <h3 className="text-xs font-black uppercase tracking-[0.4em]">{searchQuery ? (lang === 'zh' ? '搜索结果' : 'Search Results') : t.latest}</h3>
                     <div className="flex gap-4">
                       <button className="p-1 hover:bg-black/5"><BarChart2 className="w-4 h-4" /></button>
                       <button className="p-1 hover:bg-black/5"><TrendingUp className="w-4 h-4" /></button>
@@ -320,32 +440,32 @@ export default function App() {
 
                   {/* Call for Papers Section */}
                   <section className="bg-red-600 text-white p-12 space-y-6">
-                    <h3 className="font-serif text-3xl font-bold">Call for Papers: The Science of Procrastination</h3>
-                    <p className="text-white/80 leading-relaxed">We are seeking submissions for our upcoming special issue on "The Advanced Mechanics of Doing Nothing." Deadline: Whenever you feel like it.</p>
-                    <button onClick={() => navigateTo('submit')} className="bg-white text-black px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-stone-100 transition-all">Submit Now</button>
+                    <h3 className="font-serif text-3xl font-bold">{t.callForPapers.title}</h3>
+                    <p className="text-white/80 leading-relaxed">{t.callForPapers.description}</p>
+                    <button onClick={() => navigateTo('submit')} className="bg-white text-black px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-stone-100 transition-all">{t.callForPapers.action}</button>
                   </section>
                 </div>
 
                 <aside className="lg:col-span-4 space-y-16">
                   {/* Journal Stats */}
                   <div className="border border-black p-8 space-y-6">
-                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] border-b border-black/10 pb-4">Journal Metrics</h4>
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] border-b border-black/10 pb-4">{t.metrics.title}</h4>
                     <div className="grid grid-cols-2 gap-8">
                       <div>
                         <div className="text-3xl font-serif font-bold">0.00</div>
-                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">Impact Factor</div>
+                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">{t.metrics.impactFactor}</div>
                       </div>
                       <div>
                         <div className="text-3xl font-serif font-bold">99%</div>
-                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">Acceptance Rate</div>
+                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">{t.metrics.acceptanceRate}</div>
                       </div>
                       <div>
                         <div className="text-3xl font-serif font-bold">2.4s</div>
-                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">Avg. Review Time</div>
+                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">{t.metrics.avgReviewTime}</div>
                       </div>
                       <div>
                         <div className="text-3xl font-serif font-bold">∞</div>
-                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">Citations (Self)</div>
+                        <div className="text-[9px] uppercase tracking-widest text-black/40 font-bold mt-1">{t.metrics.citations}</div>
                       </div>
                     </div>
                   </div>
@@ -353,7 +473,7 @@ export default function App() {
                   {/* Trending Topics */}
                   <div className="space-y-6">
                     <h4 className="text-[10px] font-black uppercase tracking-[0.3em] flex items-center gap-2">
-                      <TrendingUp className="w-3 h-3" /> Trending Topics
+                      <TrendingUp className="w-3 h-3" /> {t.trending}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {['Feline Physics', 'Coffee Dynamics', 'Pigeonomics', 'Sleep Science', 'Absurdity', 'Meta-Review'].map(tag => (
@@ -366,7 +486,7 @@ export default function App() {
 
                   {/* Most Read Section */}
                   <div className="space-y-6">
-                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em]">Most Read This Month</h4>
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em]">{t.mostRead.title}</h4>
                     <div className="space-y-6">
                       {papers.slice(0, 3).map((p, i) => (
                         <div key={p.id} className="flex gap-4 group cursor-pointer" onClick={() => setSelectedPaperId(p.id)}>
@@ -445,7 +565,7 @@ export default function App() {
                 <h3 className="font-serif text-3xl font-bold tracking-tighter">L.A.J.I. JOURNAL</h3>
               </div>
               <p className="text-lg text-white/50 leading-relaxed font-serif italic">
-                “凡俗之料，皆可成集”
+                {t.footer.motto}
               </p>
               <div className="flex gap-6">
                 <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all"><Share2 className="w-4 h-4" /></button>
@@ -454,40 +574,40 @@ export default function App() {
             </div>
             <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-12">
               <div className="space-y-6">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-white/40">Publication</h4>
+                <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-white/40">{t.footer.publication.title}</h4>
                 <ul className="space-y-4 text-sm font-medium">
-                  <li onClick={() => navigateTo('archive')} className="cursor-pointer hover:text-white/60">Current Issue</li>
-                  <li onClick={() => navigateTo('archive')} className="cursor-pointer hover:text-white/60">All Issues</li>
-                  <li><a href="#" className="hover:text-white/60">Special Collections</a></li>
-                  <li><a href="#" className="hover:text-white/60">Most Cited</a></li>
+                  <li onClick={() => navigateTo('archive')} className="cursor-pointer hover:text-white/60">{t.footer.publication.current}</li>
+                  <li onClick={() => navigateTo('archive')} className="cursor-pointer hover:text-white/60">{t.footer.publication.all}</li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.publication.special}</a></li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.publication.mostCited}</a></li>
                 </ul>
               </div>
               <div className="space-y-6">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-white/40">Authors</h4>
+                <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-white/40">{t.footer.authors.title}</h4>
                 <ul className="space-y-4 text-sm font-medium">
-                  <li onClick={() => navigateTo('submit')} className="cursor-pointer hover:text-white/60">Submit Manuscript</li>
-                  <li><a href="#" className="hover:text-white/60">Author Guidelines</a></li>
-                  <li><a href="#" className="hover:text-white/60">Peer Review Process</a></li>
-                  <li><a href="#" className="hover:text-white/60">Open Access</a></li>
+                  <li onClick={() => navigateTo('submit')} className="cursor-pointer hover:text-white/60">{t.footer.authors.submit}</li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.authors.guidelines}</a></li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.authors.peerReview}</a></li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.authors.openAccess}</a></li>
                 </ul>
               </div>
               <div className="space-y-6">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-white/40">About</h4>
+                <h4 className="text-[10px] uppercase tracking-[0.3em] font-black text-white/40">{t.footer.about.title}</h4>
                 <ul className="space-y-4 text-sm font-medium">
-                  <li onClick={() => navigateTo('about')} className="cursor-pointer hover:text-white/60">Editorial Board</li>
-                  <li><a href="#" className="hover:text-white/60">Contact</a></li>
-                  <li><a href="#" className="hover:text-white/60">Press</a></li>
-                  <li><a href="#" className="hover:text-white/60">Sponsors</a></li>
+                  <li onClick={() => navigateTo('about')} className="cursor-pointer hover:text-white/60">{t.footer.about.board}</li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.about.contact}</a></li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.about.press}</a></li>
+                  <li><a href="#" className="hover:text-white/60">{t.footer.about.sponsors}</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div className="mt-24 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-black text-white/30">
-            <p>© 2024 L.A.J.I. JOURNAL • ISSN 2024-8888 • Published by Absurdity Press</p>
+            <p>© 2024 L.A.J.I. JOURNAL • ISSN 2024-8888 • {t.footer.publishedBy}</p>
             <div className="flex gap-12">
-              <a href="#" className="hover:text-white">Privacy</a>
-              <a href="#" className="hover:text-white">Terms</a>
-              <a href="#" className="hover:text-white">Cookies</a>
+              <a href="#" className="hover:text-white">{t.footer.privacy}</a>
+              <a href="#" className="hover:text-white">{t.footer.terms}</a>
+              <a href="#" className="hover:text-white">{t.footer.cookies}</a>
             </div>
           </div>
         </div>
@@ -575,7 +695,7 @@ function PaperReader({ paper, lang, onBack, t }: { paper: Paper; lang: Language;
               )}
             >
               <FileText className="w-4 h-4" />
-              {viewMode === 'pdf' ? (lang === 'zh' ? '阅读文字版' : 'Read Text') : (lang === 'zh' ? '查看 PDF 原件' : 'View Original PDF')}
+              {viewMode === 'pdf' ? t.reader.readText : t.reader.viewPdf}
             </button>
           )}
           <a
@@ -606,7 +726,7 @@ function PaperReader({ paper, lang, onBack, t }: { paper: Paper; lang: Language;
               <div className="space-y-6">
                 <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-red-600">
                   <Award className="w-4 h-4" />
-                  Original Research Article
+                  {t.reader.originalArticle}
                 </div>
                 <h1 className="font-serif text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight">
                   {paper.title[lang]}
@@ -623,7 +743,7 @@ function PaperReader({ paper, lang, onBack, t }: { paper: Paper; lang: Language;
 
               {/* Abstract */}
               <div className="bg-stone-50 p-10 border-l-8 border-black space-y-6">
-                <h2 className="text-[10px] font-black uppercase tracking-[0.4em]">Abstract</h2>
+                <h2 className="text-[10px] font-black uppercase tracking-[0.4em]">{t.reader.abstract}</h2>
                 <p className="text-xl leading-relaxed text-justify italic font-serif text-black/80">
                   {paper.abstract[lang]}
                 </p>
@@ -643,7 +763,7 @@ function PaperReader({ paper, lang, onBack, t }: { paper: Paper; lang: Language;
 
               {/* References */}
               <div className="pt-20 border-t-2 border-black">
-                <h2 className="text-[10px] font-black uppercase tracking-[0.4em] mb-10">References & Citations</h2>
+                <h2 className="text-[10px] font-black uppercase tracking-[0.4em] mb-10">{t.reader.references}</h2>
                 <div className="space-y-8 font-mono text-xs text-black/50">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="flex gap-6">
@@ -666,33 +786,33 @@ function PaperReader({ paper, lang, onBack, t }: { paper: Paper; lang: Language;
           <div className="sticky top-32 space-y-12">
             {/* Article Info */}
             <div className="border border-black p-8 space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] border-b border-black/10 pb-4">Article Information</h4>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] border-b border-black/10 pb-4">{t.reader.articleInfo}</h4>
               <div className="space-y-4">
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                  <span className="text-black/40">Published</span>
+                  <span className="text-black/40">{t.reader.published}</span>
                   <span>{paper.date}</span>
                 </div>
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                  <span className="text-black/40">Journal</span>
+                  <span className="text-black/40">{t.reader.journal}</span>
                   <span>SG</span>
                 </div>
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                  <span className="text-black/40">Volume</span>
+                  <span className="text-black/40">{t.reader.volume}</span>
                   <span>{paper.volume}</span>
                 </div>
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                  <span className="text-black/40">Issue</span>
+                  <span className="text-black/40">{t.reader.issue}</span>
                   <span>{paper.issue}</span>
                 </div>
                 {paper.impactFactor !== undefined && (
                   <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-red-600">
-                    <span>Impact Factor</span>
+                    <span>{t.metrics.impactFactor}</span>
                     <span>{paper.impactFactor}</span>
                   </div>
                 )}
                 {paper.citations !== undefined && (
                   <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
-                    <span className="text-black/40">Citations</span>
+                    <span className="text-black/40">{t.metrics.citations}</span>
                     <span>{paper.citations}</span>
                   </div>
                 )}
@@ -703,7 +823,7 @@ function PaperReader({ paper, lang, onBack, t }: { paper: Paper; lang: Language;
                   </div>
                 )}
                 <div className="pt-4 border-t border-black/5">
-                  <div className="text-[9px] font-black text-black/30 uppercase tracking-widest mb-2">Digital Object Identifier</div>
+                  <div className="text-[9px] font-black text-black/30 uppercase tracking-widest mb-2">{t.reader.doi}</div>
                   <div className="text-[11px] font-mono break-all">{paper.doi}</div>
                 </div>
               </div>
@@ -711,7 +831,7 @@ function PaperReader({ paper, lang, onBack, t }: { paper: Paper; lang: Language;
 
             {/* Related Articles */}
             <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em]">Related Articles</h4>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em]">{t.reader.relatedArticles}</h4>
               <div className="space-y-8">
                 {papers.filter(p => p.id !== paper.id).slice(0, 2).map(p => (
                   <div key={p.id} className="group cursor-pointer" onClick={() => { window.scrollTo(0, 0); onBack(); /* Simplified navigation */ }}>

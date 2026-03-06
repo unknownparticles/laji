@@ -29,6 +29,8 @@ export interface Paper {
   impactFactor?: number;
   citations?: number;
   reviewScore?: number;
+  acceptanceRate?: string;
+  avgReviewTime?: string;
 }
 
 export interface SiteContent {
@@ -43,4 +45,64 @@ export interface SiteContent {
   backToList: string;
   featured: string;
   latest: string;
+  results: string;
+  metrics: {
+    title: string;
+    impactFactor: string;
+    acceptanceRate: string;
+    avgReviewTime: string;
+    citations: string;
+  };
+  trending: string;
+  mostRead: {
+    title: string;
+    unit: string;
+  };
+  callForPapers: {
+    title: string;
+    description: string;
+    action: string;
+  };
+  reader: {
+    originalArticle: string;
+    readText: string;
+    viewPdf: string;
+    abstract: string;
+    references: string;
+    articleInfo: string;
+    published: string;
+    journal: string;
+    volume: string;
+    issue: string;
+    doi: string;
+    relatedArticles: string;
+  };
+  footer: {
+    motto: string;
+    publication: {
+      title: string;
+      current: string;
+      all: string;
+      special: string;
+      mostCited: string;
+    };
+    authors: {
+      title: string;
+      submit: string;
+      guidelines: string;
+      peerReview: string;
+      openAccess: string;
+    };
+    about: {
+      title: string;
+      board: string;
+      contact: string;
+      press: string;
+      sponsors: string;
+    };
+    privacy: string;
+    terms: string;
+    cookies: string;
+    publishedBy: string;
+  };
 }

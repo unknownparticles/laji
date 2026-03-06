@@ -128,8 +128,8 @@ export default function App() {
             onClick={() => navigateTo('home')}
           >
             <div className="relative">
-              <div className="w-12 h-12 bg-black flex items-center justify-center text-white font-serif text-2xl font-bold transition-transform group-hover:scale-105">
-                S
+              <div className="w-12 h-12 bg-white flex items-center justify-center transition-transform group-hover:scale-105 overflow-hidden border border-black/5">
+                <img src="/favicon.png" alt="S" className="w-full h-full object-contain" />
               </div>
               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-red-600 border-2 border-white" />
             </div>

@@ -26,15 +26,15 @@ const content: Record<Language, SiteContent & { about: any; submit: any; archive
     featured: '本期封面文章',
     latest: '最新研究成果',
     about: {
-      title: '关于拉集',
+      title: '关于 L.A.J.I.',
       subtitle: '凡俗之料，皆可成集',
-      description: '拉集(LAJI JOURNAL) 是一本致力于传播高度可疑、极其具体且无意中令人捧腹的学术研究的国际期刊。我们相信，即使是最普通的问题，也值得拥有一个看起来很严肃的 PDF。',
+      description: '拉集(L.A.J.I. JOURNAL) 是一本致力于传播高度可疑、极其具体且无意中令人捧腹的学术研究的国际期刊。我们相信，即使是最普通的问题，也值得拥有一个看起来很严肃的 PDF。',
       mission: '我们的使命是打破学术界的沉闷，证明幽默与严谨可以并存。',
     },
     submit: {
-      title: '投稿至拉集',
+      title: '投稿至 L.A.J.I.',
       subtitle: '将您的奇思妙想转化为学术成果。',
-      description: '感谢您考虑将您的研究成果提交给拉集。目前我们已采用全新的精简投稿流程。',
+      description: '感谢您考虑将您的研究成果提交给 L.A.J.I.。目前我们已采用全新的精简投稿流程。',
       action: '撰写邮件投稿',
     },
     archive: {
@@ -51,15 +51,15 @@ const content: Record<Language, SiteContent & { about: any; submit: any; archive
     featured: 'Featured Article',
     latest: 'Latest Research',
     about: {
-      title: 'About LAJI JOURNAL',
+      title: 'About L.A.J.I. JOURNAL',
       subtitle: 'Ordinary materials, all can be collected.',
-      description: 'LAJI JOURNAL is an international journal dedicated to the dissemination of highly questionable, absurdly specific, and unintentionally hilarious academic research. We believe that even the silliest questions deserve a serious-looking PDF.',
+      description: 'L.A.J.I. JOURNAL is an international journal dedicated to the dissemination of highly questionable, absurdly specific, and unintentionally hilarious academic research. We believe that even the silliest questions deserve a serious-looking PDF.',
       mission: 'Our mission is to break the dullness of academia and prove that humor and rigor can coexist.',
     },
     submit: {
-      title: 'Submit to LAJI JOURNAL',
+      title: 'Submit to L.A.J.I. JOURNAL',
       subtitle: 'Transform your wild ideas into academic achievements.',
-      description: 'Thank you for considering submitting your research to LAJI JOURNAL. We have now adopted a streamlined submission process.',
+      description: 'Thank you for considering submitting your research to L.A.J.I. JOURNAL. We have now adopted a streamlined submission process.',
       action: 'Compose Submission Email',
     },
     archive: {
@@ -133,12 +133,12 @@ export default function App() {
               </div>
               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-red-600 border-2 border-white" />
             </div>
-            <div className="hidden sm:block">
+            <div>
               <h1 className="font-serif text-2xl font-black tracking-tighter leading-none">
-                {lang === 'zh' ? '拉集' : 'LAJI JOURNAL'}
+                {lang === 'zh' ? '拉集 / L.A.J.I.' : 'L.A.J.I. JOURNAL'}
               </h1>
               <p className="text-[9px] uppercase tracking-[0.3em] text-black/40 font-bold mt-1">
-                凡俗之料，皆可成集
+                League of Academic Junk Inquiry
               </p>
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function App() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-24 px-6 lg:hidden"
+            className="fixed inset-0 z-[60] bg-white pt-24 px-6 lg:hidden"
           >
             <nav className="flex flex-col gap-8">
               <button onClick={() => navigateTo('home')} className="text-2xl font-serif font-bold text-left">{t.nav.home}</button>
@@ -442,7 +442,7 @@ export default function App() {
             <div className="md:col-span-5 space-y-8">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-white text-black flex items-center justify-center font-serif text-2xl font-bold">L</div>
-                <h3 className="font-serif text-3xl font-bold tracking-tighter">LAJI JOURNAL</h3>
+                <h3 className="font-serif text-3xl font-bold tracking-tighter">L.A.J.I. JOURNAL</h3>
               </div>
               <p className="text-lg text-white/50 leading-relaxed font-serif italic">
                 “凡俗之料，皆可成集”
@@ -483,7 +483,7 @@ export default function App() {
             </div>
           </div>
           <div className="mt-24 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-black text-white/30">
-            <p>© 2024 LAJI JOURNAL • ISSN 2024-8888 • Published by Absurdity Press</p>
+            <p>© 2024 L.A.J.I. JOURNAL • ISSN 2024-8888 • Published by Absurdity Press</p>
             <div className="flex gap-12">
               <a href="#" className="hover:text-white">Privacy</a>
               <a href="#" className="hover:text-white">Terms</a>

@@ -6,20 +6,33 @@ export const sg2026675: Paper = {
     "id": "sg-2026-675",
     "title": {
         "zh": "吃沙县小吃是否会影响用户单手开法拉利",
-        "en": "吃沙县小吃是否会影响用户单手开法拉利"
+        "en": "Whether Eating Shaxian Snacks Affects Users Driving a Ferrari with One Hand"
     },
     "authors": [
-        "alun weng"
+        "Ferrari Fanatic / 跃马信徒",
+        "Shaxian Gourmet / 沙县专家"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "沙县小吃",
+            "单手开法拉利",
+            "用户行为",
+            "生理影响",
+            "心理影响"
+        ],
+        "en": [
+            "Shaxian snacks",
+            "Driving a Ferrari with one hand",
+            "User behavior",
+            "Physiological impact",
+            "Psychological impact"
+        ]
     },
     "abstract": {
         "zh": "随着沙县小吃在全国范围内的广泛普及以及法拉利作为高端跑车在特定人群中的拥有量增加，探讨吃沙县小吃是否会影响用户单手开法拉利的行为成为一个有趣且具有现实意义的研究课题。本研究通过实际调查与案例分析等科学方法，深入剖析这一跨领域的行为关联。研究发现，吃沙县小吃在生理层面可能对手部操作灵活性与身体协调性产生影响，在心理层面则可能导致注意力分散与心理状态变化，从而影响用户单手开法拉利的行为。此外，个体差异与驾驶环境因素也对该关系起到调节作用。本研究为消费者行为认知与驾驶安全领域提供了新的视角与理论依据，具有一定的实践指导意义。",

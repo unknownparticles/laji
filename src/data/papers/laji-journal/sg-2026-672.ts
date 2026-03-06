@@ -6,20 +6,33 @@ export const sg2026672: Paper = {
     "id": "sg-2026-672",
     "title": {
         "zh": "论追不到关系中及时止损标志的界定",
-        "en": "论追不到关系中及时止损标志的界定"
+        "en": "On the Definition of Timely Stop-Loss Signs in Unrequited Relationships"
     },
     "authors": [
-        "alun weng"
+        "Pure Love Warrior / 纯爱战神",
+        "Stop Loss Master / 止损大师"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "追不到关系",
+            "及时止损",
+            "心理学",
+            "社会学",
+            "应对策略"
+        ],
+        "en": [
+            "Unattainable relationship",
+            "Timely stop-loss",
+            "Psychology",
+            "Sociology",
+            "Coping strategy"
+        ]
     },
     "abstract": {
         "zh": "本研究旨在深入探究追不到关系中及时止损标志的界定，旨在为个体在复杂情感困境中提供科学指引，助力其实现情感资源的合理配置与身心健康的发展。研究采用多学科综合分析的方法，融合心理学、社会学等领域的理论视角，对追不到关系这一特定情境展开系统剖析。通过文献研究、案例分析以及理论推导等多种手段，全面探究影响个体在追不到关系中情感投入的因素，以及不同情境下及时止损标志的表现形式。研究发现，及时止损标志涵盖心理学层面的情感疲惫、自我否定，社会学层面的亲友态度转变、社交圈子反馈等多元维度。同时，针对因错误界定止损标志可能引发的情感内耗等问题，提出了增强自我认知、寻求专业咨询等切实可行的应对策略，以期为个体在追不到关系中做出明智决策提供有力支持。",

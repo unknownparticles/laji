@@ -6,20 +6,33 @@ export const sg2026814: Paper = {
     "id": "sg-2026-814",
     "title": {
         "zh": "关于猫作为流体在不同容器中形态演变的研究",
-        "en": "关于猫作为流体在不同容器中形态演变的研究"
+        "en": "Research on the Morphological Evolution of Cats as Fluids in Different Containers"
     },
     "authors": [
-        "alun weng"
+        "Liquidity Specialist / 液体学专家",
+        "Cat Servant / 猫奴学者"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "猫",
+            "流体",
+            "容器",
+            "形态演变",
+            "行为模式"
+        ],
+        "en": [
+            "Cat",
+            "Fluid",
+            "Container",
+            "Morphological evolution",
+            "Behavior pattern"
+        ]
     },
     "abstract": {
         "zh": "本研究旨在以猫为对象，将其独特的行为模式类比为流体，深入探究其在不同容器中形态演变的规律与机制。通过结合理论建模与实例分析等方法，对猫在不同容器下的形态变化展开系统研究。研究建立了猫作为流体的理论模型，分析了不同容器的物理特性，并实例剖析了猫在纸箱、布袋及狭小空间等容器中的形态演变过程。研究发现，猫在不同容器下呈现出特定的形态演变规律，且这一过程受容器材质、大小、形状等物理特性，以及猫自身品种、年龄、性格等因素，还有外部温度、湿度、光照等环境条件的影响。本研究为理解猫的行为模式提供了新的视角，对宠物用品设计、宠物行为训练及宠物福利改善等领域具有重要的理论与实践意义。",

@@ -54,7 +54,11 @@ async function extractTextFromDocx(filePath: string): Promise<string> {
     return result.value;
 }
 
-function parseMdManual(content: string): Paper {
+function parseMdManual(content: string): Paper | null {
+    if (!content || content.trim().length === 0) {
+        return null;
+    }
+
     const lines = content.split('\n');
     let title = '';
     let abstractZh = '';
@@ -85,6 +89,10 @@ function parseMdManual(content: string): Paper {
         } else if (trimmed.startsWith('**Keyword:')) {
             keywordsEn = trimmed.split(/[:：]/)[1]?.split(/[;；,，]/).map(s => s.trim()).filter(Boolean) || [];
         }
+    }
+
+    if (!title && !abstractZh && !abstractEn) {
+        return null;
     }
 
     const id = title ? slugify(title) : `sg-${new Date().getFullYear()}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
@@ -359,6 +367,10 @@ async function main() {
             console.log(`Processing Markdown file: ${file}`);
             const mdContent = fs.readFileSync(filePath, 'utf-8');
             const manualObj = parseMdManual(mdContent);
+            if (!manualObj) {
+                console.log(`Skipping invalid/empty Markdown file: ${file}`);
+                continue;
+            }
             const pdfPath = await convertMdToPdf(filePath);
             if (pdfPath) {
                 const pdfFileName = path.basename(pdfPath);

@@ -20,7 +20,10 @@ import { sg2026672 } from './papers/laji-journal/sg-2026-672';
 
 import { p2000 } from './papers/laji-journal/2000';
 
+import { sg2026814 } from './papers/laji-journal/sg-2026-814';
+
 export const papers: Paper[] = [
+  sg2026814,
   p2000,
   sg2026672,
   sg2026298,

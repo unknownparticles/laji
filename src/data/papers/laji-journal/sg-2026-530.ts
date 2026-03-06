@@ -6,20 +6,32 @@ export const sg2026530: Paper = {
     "id": "sg-2026-530",
     "title": {
         "zh": "喝霸王茶姬与编程效率的关系探究",
-        "en": "喝霸王茶姬与编程效率的关系探究"
+        "en": "Exploring the Relationship Between Drinking BaWang Cha Ji and Programming Efficiency"
     },
     "authors": [
         "alun weng"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "霸王茶姬",
+            "编程效率",
+            "问卷调查",
+            "案例分析",
+            "生理心理影响"
+        ],
+        "en": [
+            "BaWang Cha Ji",
+            "Programming Efficiency",
+            "Questionnaire Survey",
+            "Case Analysis",
+            "Physiological and Psychological Effects"
+        ]
     },
     "abstract": {
         "zh": "随着新茶饮行业的蓬勃发展，霸王茶姬凭借其独特的口感与品质在市场上占据一席之地。与此同时，编程行业作为现代科技发展的核心力量，对工作效率的提升有着不懈追求。在此背景下，本研究旨在探究喝霸王茶姬与编程效率之间的潜在关系。通过精心设计的问卷调查，收集编程从业者关于喝霸王茶姬习惯与编程效率自评的数据，并运用科学的数据分析方法进行深入剖析；同时，选取具有代表性的编程团队进行案例分析，对比其喝霸王茶姬前后的编程效率变化。研究发现，适量饮用霸王茶姬可在一定程度上提升编程效率，其作用机制与霸王茶姬成分对人体的生理心理影响密切相关。这一发现对编程从业者合理调整工作习惯、提升工作效率具有重要的实践意义。",

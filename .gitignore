@@ -9,3 +9,14 @@ coverage/
 
 # Draft and temp papers
 src/data/papers/unknown/
+
+# IDEs and others
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+dist-ssr
+*.local

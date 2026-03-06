@@ -6,20 +6,31 @@ export const sg2026640: Paper = {
     "id": "sg-2026-640",
     "title": {
         "zh": "论港式丝袜奶茶制作中丝袜材质之辨",
-        "en": "论港式丝袜奶茶制作中丝袜材质之辨"
+        "en": "On the Distinction of Silk Stocking Materials in the Production of Hong Kong-style Silk Stocking Milk Tea"
     },
     "authors": [
-        "alun weng"
+        "Milk Tea Expert / 奶茶砖家",
+        "Stocking Connoisseur / 丝袜达人"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "港式丝袜奶茶",
+            "真丝袜",
+            "丝袜材质",
+            "奶茶制作工艺"
+        ],
+        "en": [
+            "Hong Kong-style silk-stocking milk tea",
+            "Real silk-stockings",
+            "Silk-stocking materials",
+            "Milk tea production process"
+        ]
     },
     "abstract": {
         "zh": "港式丝袜奶茶作为香港饮食文化的标志性饮品，在全球茶饮文化中占据重要地位。本研究旨在深入探究港式丝袜奶茶的起源与传统制作工艺，并科学论证是否需用真丝袜以及不同丝袜对其品质的影响。通过文献研究与实验分析相结合的方法，对丝袜奶茶的历史背景、制作流程进行系统梳理，同时开展实验研究对比真丝袜、尼龙袜、棉袜等不同材质对奶茶口感、香气、色泽等品质指标的具体作用。研究结果表明，真丝袜在提升奶茶口感醇厚度与顺滑度方面具有独特优势，但现代替代材质亦有各自特点。本研究对传承与发扬丝袜奶茶制作工艺，规范行业标准，满足消费者需求具有重要意义，为丝袜奶茶的可持续发展提供了理论依据与实践指导。",

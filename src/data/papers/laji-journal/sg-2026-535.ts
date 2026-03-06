@@ -6,20 +6,31 @@ export const sg2026535: Paper = {
     "id": "sg-2026-535",
     "title": {
         "zh": "大学生熬夜与咖啡因摄入对灵魂出窍概率的影响",
-        "en": "大学生熬夜与咖啡因摄入对灵魂出窍概率的影响"
+        "en": "The Impact of College Students' Staying Up Late and Caffeine Intake on the Probability of Out-of-Body Experiences"
     },
     "authors": [
-        "alun weng"
+        "Ghost Sleeper / 归虚子",
+        "Caffeine Junkie / 咖神"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "大学生",
+            "熬夜",
+            "咖啡因摄入",
+            "灵魂出窍"
+        ],
+        "en": [
+            "College students",
+            "Staying up late",
+            "Caffeine intake",
+            "Out-of-body experiences"
+        ]
     },
     "abstract": {
         "zh": "本研究旨在探讨大学生熬夜与咖啡因摄入对灵魂出窍概率的影响。鉴于大学生群体中熬夜和咖啡因摄入现象普遍，且灵魂出窍体验作为一种神秘的心理现象已引起关注，本研究通过问卷调查和实验设计等方法收集数据，深入分析熬夜时长、咖啡因摄入量与灵魂出窍概率之间的关系。研究发现，熬夜时长与咖啡因摄入量均对灵魂出窍概率存在显著影响，且两者之间存在一定的交互作用。这一结果不仅丰富了灵魂出窍体验的相关理论，还为大学生健康教育提供了重要参考，有助于引导大学生养成合理的作息习惯和控制咖啡因摄入量，从而保障身心健康。",

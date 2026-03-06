@@ -6,20 +6,31 @@ export const p100: Paper = {
     "id": "100",
     "title": {
         "zh": "如何用100块钱在中国二线城市体面的度过一个月",
-        "en": "如何用100块钱在中国二线城市体面的度过一个月"
+        "en": "How to Spend a Month Decently in a Second-Tier Chinese City with 100 Yuan"
     },
     "authors": [
-        "alun weng"
+        "Economist Cheap / 齐省钱",
+        "Budget Master / 郝划算"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "二线城市",
+            "100块钱",
+            "体面生活",
+            "消费策略"
+        ],
+        "en": [
+            "Second-tier cities",
+            "100 yuan",
+            "Decent life",
+            "Consumption strategies"
+        ]
     },
     "abstract": {
         "zh": "在当前社会，部分人群面临经济限制，如何在有限经济条件下于二线城市实现体面生活成为值得探讨的议题。本研究采用多维度分析思路，从衣食住行等关键方面深入探讨用100块钱在中国二线城市体面度过一个月的方法。通过对二线城市消费水平、生活成本构成的详细剖析，以及对体面生活标准的明确定义，研究发现了一系列切实可行的体面生活策略，包括选择高性价比食材与自制简餐的饮食策略、利用社交资源与选择低成本住宿场所的住宿策略、步行骑行与利用公共交通优惠的交通策略，以及参与免费或低成本社交活动的社交与娱乐策略等，为在类似经济限制下追求体面生活的人群提供了有益参考。",

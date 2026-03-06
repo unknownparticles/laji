@@ -6,20 +6,33 @@ export const p2000: Paper = {
     "id": "2000",
     "title": {
         "zh": "如何在中国合法的躺着赚2000万人民币",
-        "en": "如何在中国合法的躺着赚2000万人民币"
+        "en": "How to Legally Earn 20 Million RMB in China While Lying Down"
     },
     "authors": [
-        "alun weng"
+        "Dreamer Lu / 陆大梦",
+        "Passive Income / 裴希恩"
     ],
     "date": "2026-03-06",
-    "journal": "LAJI JOURNAL",
+    "journal": "L.A.J.I. JOURNAL",
     "volume": "1",
     "issue": "1",
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": [
+            "合法收入",
+            "躺赚",
+            "投资理财",
+            "知识产权",
+            "网络平台"
+        ],
+        "en": [
+            "Legal income",
+            "Earning money by lying down",
+            "Investment and financial management",
+            "Intellectual property rights",
+            "Online platform"
+        ]
     },
     "abstract": {
         "zh": "本研究旨在探索在中国合法实现“躺赚”2000万人民币的有效方式，以满足当前经济环境下人们对多样化收入途径的需求。通过综合运用文献研究、案例分析及市场分析等方法，对投资理财、知识产权运营、网络平台等合法途径进行深入剖析，同时探讨在追求“躺赚”过程中面临的市场风险、法律风险及竞争压力等问题，并提出相应的应对策略。研究发现，合法“躺赚”存在多元途径，如股票投资、基金投资、房地产投资、专利运营、版权运营、自媒体运营及电商平台运营等，每种途径都有其独特的实现条件与关键要点。本研究为有“躺赚”需求者提供了合法、有效的参考，助力其在合规前提下实现财富增长。",

@@ -45,8 +45,8 @@ async function extractTextFromPDF(filePath: string): Promise<string> {
     const pdf = new pdfParse.PDFParse({ data: dataBuffer });
     const result = await pdf.getText();
     let text = result.text || '';
-    // Strip trailing (AI生成) tag
-    text = text.replace(/（AI生成）\s*$/g, '').trim();
+    // Strip trailing (AI生成) or （AI生成） tag
+    text = text.replace(/[（\(]AI生成[）\)]\s*$/g, '').trim();
     return text;
 }
 
@@ -72,7 +72,10 @@ function parseMdManual(content: string): Paper | null {
     for (const line of lines) {
         const trimmed = line.trim();
         if (!title && (trimmed.startsWith('# ') || trimmed.startsWith('## ') || trimmed.startsWith('### '))) {
-            title = trimmed.replace(/^#+\s+/, '').trim();
+            let extractedTitle = trimmed.replace(/^#+\s+/, '').trim();
+            // Clean up common prefixes
+            extractedTitle = extractedTitle.replace(/^(标题|Title|Topic|Theme)[:：\s]*/i, '').trim();
+            title = extractedTitle;
         } else if (trimmed.toLowerCase().includes('#### 摘要') || trimmed.toLowerCase().includes('#### abstract')) {
             if (trimmed.toLowerCase().includes('摘要')) { inAbstractZh = true; inAbstractEn = false; }
             else { inAbstractEn = true; inAbstractZh = false; }
@@ -92,7 +95,7 @@ function parseMdManual(content: string): Paper | null {
         }
     }
 
-    if (!title && !abstractZh && !abstractEn) {
+    if (!title || title === '无标题' || title === 'Untitled' || (!abstractZh && !abstractEn)) {
         return null;
     }
 
@@ -114,17 +117,13 @@ function parseMdManual(content: string): Paper | null {
     };
 }
 
-async function convertMdToPdf(mdPath: string): Promise<string> {
+export async function convertMdToPdf(mdPath: string): Promise<string> {
     const pdfPath = mdPath.replace(/\.md$/i, '.pdf');
     let content = fs.readFileSync(mdPath, 'utf-8');
 
     // Pre-process citations: convert [[doc_refer_1]] to <sup>[1]</sup>
     content = content.replace(/\[\[doc_refer_(\d+)\]\]/g, '<sup style="color: inherit; font-weight: normal;">[$1]</sup>');
-
-    // Add (AI生成) at the end if not present
-    if (!content.trim().endsWith('(AI生成)')) {
-        content = content.trim() + '\n\n(AI生成)';
-    }
+    content = content.trim();
 
     console.log(`Converting ${mdPath} to ${pdfPath}...`);
     try {
@@ -226,11 +225,12 @@ async function processFile(filePath: string, fileName: string, overrideObj?: Pap
         1. If no authors are found, set "authors" to ["alun weng"].
         2. Ensure "zh" fields are in Chinese and "en" fields are in English.
         3. Output ONLY a valid minified JSON object.
+        4. "title" should be a clean title without prefixes like "标题：" or "Title:".
     
         Structure required:
         {
           "id": "slug-id",
-          "title": { "zh": "...", "en": "..." },
+          "title": { "zh": "标题内容", "en": "English Title" },
           "authors": ["Author 1"],
           "date": "YYYY-MM-DD",
           "journal": "Journal Name",
@@ -434,6 +434,36 @@ async function main() {
 
         console.log(`Finished processing and pushing ${successfullyProcessed.length} papers.`);
     }
+}
+
+export async function rebuildPapersRegistry() {
+    console.log('Rebuilding paper registry...');
+    const journalFolders = fs.readdirSync(outputBaseDir).filter(f => fs.statSync(path.join(outputBaseDir, f)).isDirectory());
+
+    let importStatements = '';
+    let registryArray = 'export const papers: Paper[] = [\n';
+
+    for (const journal of journalFolders) {
+        const journalPath = path.join(outputBaseDir, journal);
+        const files = fs.readdirSync(journalPath).filter(f => f.endsWith('.ts'));
+
+        for (const file of files) {
+            const paperId = path.basename(file, '.ts');
+            // Read file to get variable name
+            const content = fs.readFileSync(path.join(journalPath, file), 'utf-8');
+            const varMatch = content.match(/export const (\w+): Paper/);
+            if (varMatch) {
+                const varName = varMatch[1];
+                importStatements += `import { ${varName} } from './papers/${journal}/${paperId}';\n`;
+                registryArray += `  ${varName},\n`;
+            }
+        }
+    }
+
+    registryArray += '];\n';
+    const finalContent = `${importStatements}\n${registryArray}`;
+    fs.writeFileSync(path.join(rootDir, 'src', 'data', 'papers.ts'), finalContent, 'utf-8');
+    console.log('Registry rebuilt successfully.');
 }
 
 main();

@@ -6,7 +6,7 @@ export const sg2026769: Paper = {
     "id": "sg-2026-769",
     "title": {
         "zh": "论隆江猪脚饭在评选米其林三星餐厅面临的困境与阻碍",
-        "en": "论隆江猪脚饭在评选米其林三星餐厅面临的困境与阻碍"
+        "en": "On the difficulties and obstacles faced by Longjiang Pork Knuckle Rice in the selection of Michelin three-star restaurants"
     },
     "authors": [
         "alun weng"
@@ -18,8 +18,8 @@ export const sg2026769: Paper = {
     "doi": "N/A",
     "category": "Economy & Society",
     "keywords": {
-        "zh": [],
-        "en": []
+        "zh": ["隆江猪脚饭", "米其林三星餐厅", "评选标准", "市场环境"],
+        "en": ["Longjiang Pig's Trotter Rice", "Michelin Three - star Restaurant", "Rating Standards", "Market Environment"]
     },
     "abstract": {
         "zh": "本研究旨在深入剖析隆江猪脚饭在评选米其林三星餐厅过程中所面临的困难与阻碍。通过综合运用文献研究法，对隆江猪脚饭的菜品特色、米其林三星餐厅评选标准以及市场环境等多方面进行系统分析。研究发现，隆江猪脚饭在食材品质、烹饪技巧、菜品创意、环境与服务水平等方面与米其林三星餐厅标准存在差距，同时面临高端餐饮市场竞争激烈、消费者认知有待提升等阻碍。基于此，提出从提升菜品品质、改善环境与服务水平、加强品牌建设与市场推广等方面的策略建议，以期为隆江猪脚饭冲击米其林三星餐厅提供理论与实践参考，推动地方特色美食走向高端餐饮市场。",

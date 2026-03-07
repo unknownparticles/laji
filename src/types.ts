@@ -33,12 +33,29 @@ export interface Paper {
   avgReviewTime?: string;
 }
 
+export interface News {
+  id: string;
+  date: string;
+  title: {
+    zh: string;
+    en: string;
+  };
+  content: {
+    zh: string;
+    en: string;
+  };
+}
+
 export interface SiteContent {
   nav: {
     home: string;
     browse: string;
     about: string;
     submit: string;
+    donate: string;
+    journals: string;
+    news: string;
+    tags: string;
   };
   searchPlaceholder: string;
   readMore: string;
@@ -104,5 +121,24 @@ export interface SiteContent {
     terms: string;
     cookies: string;
     publishedBy: string;
+  };
+  donate: {
+    title: string;
+    subtitle: string;
+    description: string;
+    alipay: string;
+    wechat: string;
+  };
+  news: {
+    title: string;
+    subtitle: string;
+  };
+  tags: {
+    title: string;
+    subtitle: string;
+  };
+  guide: {
+    title: string;
+    templateTitle: string;
   };
 }
